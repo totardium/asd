@@ -5,11 +5,12 @@
     <link rel="icon" href="https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/709a624cc2eee4e2790528a944fa7448-1679449759169/e281e8ea-085d-47e3-a713-969bef16f02a.png">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="main.js"></script>
     </html>
 <body>
     <div class="Heather">
-        <a href="#Home">Home</a>
-        <a href="#About-me">About me</a>
+        <a>Home</a>
+        <a>About me</a>
         <a>Projects</a>
         <a>Contact</a>
         <img src="https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/709a624cc2eee4e2790528a944fa7448-1679449759169/e281e8ea-085d-47e3-a713-969bef16f02a.png" alt="Icon">
@@ -60,34 +61,4 @@
             <button type="submit" class="submit-btn">Send message</button>
         </form>
     </div>
-    <script>
-        const contactForm = document.querySelector("#form");
-        const submitBtn = document.querySelector(".submit-btn");
-        const nameImput = document.querySelector("#name");
-        const emailInput = document.querySelector("#email");
-        const messageInput = document.querySelector("#message");
-        const publicKey = "ySkcSbCTbWznDqrYU";
-        const serviceID = "service_qhucxia";
-        const templateID = "template_3guad3c";
-        emailjs.init(publicKey);
-        contactForm.addEventListener("submit", e => {
-        e.preventDefault();
-        submitBtn.innerText = "Just A Moment...";
-        const inputFields = {
-            name: nameImput.value,
-            email: emailInput.value,
-            message: messageInput.value
-        }
-        emailJs.send(serviceID, templateID, inputFields)
-        .then(() => {
-            submitBtn.innerText = "Message Sent Successfully";
-        nameImput.value = "";
-        emailInput.value = "";
-        messageInput.value = "";
-        }, (error) => {
-            console.log(error);
-            submitBtn.innerText = "Something Went Wrong";
-        });
-    });
-    </script>
 </body>
