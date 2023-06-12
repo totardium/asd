@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Thomas Portfolio</title>
+    <link rel="icon" href="https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/709a624cc2eee4e2790528a944fa7448-1679449759169/e281e8ea-085d-47e3-a713-969bef16f02a.png">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    </html>
+<body>
+    <div class="Heather">
+        <a href="#Home">Home</a>
+        <a href="#About-me">About me</a>
+        <a>Projects</a>
+        <a>Contact</a>
+        <img src="https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/709a624cc2eee4e2790528a944fa7448-1679449759169/e281e8ea-085d-47e3-a713-969bef16f02a.png" alt="Icon">
+    </div>
+    <div class="Home">
+        <img id="profile" src="C:\Users\totoc\Downloads\1d1244e8-b9f4-494c-a833-3870b4d6a153.png" alt="my-picture">
+        <h1>Thomas Garcia</h1>
+        <h4>Im a Video Editor</h4>
+    </div>
+    <div class="About-me">
+        <img src="https://cdn.pixabay.com/photo/2022/07/13/21/57/editing-7320125_1280.jpg" alt="img-editing">
+        <h5>About Me</h5>
+        <h4>Thomas Garcia</h4>
+        <p>Hey there! I'm Thomas Garcia, a video editor and thumbnail maker with an expertise with adobe cloud. With over 8 years of experience using Adobe Illustrator and Photoshop, and 5-10 years working with clients in video editing using Adobe Premiere and After Effects, I bring a wealth of expertise to the table.</p>
+        <h5>Skills</h5>
+        <ul>
+            <li class="Adobe-premiere">Adobe Premiere Pro</li>
+            <li class="After-Effects">Adobe After Effects</li>
+            <li class="Adobe-Photoshop">Adobe Photoshop</li>
+            <li class="Adobe-Illustrator">Adobe Illustrator</li>
+        </ul>      
+    </div>
+    <div class="Work">
+        <h1>Project examples</h1>
+        <video class="works" width="200" height="329" controls>
+            <source class="video1" src="C:\Users\totoc\Downloads\Video.mp4" type="video/mp4">
+        </video>
+        <video class="works" width="200" height="329" autoplay controls>
+        <source class="video2" src="D:\files edit\Practica\Diary of a CEO\Sequence 01_2.mp4" type="video/mp4">
+        </video>
+        <video class="works" width="200" height="329" controls>
+            <source class="video3" src="D:\files edit\Practica\Diary of a CEO\Sequence 04.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="contact">
+        <h1>Contact Me!</h1>
+        <h2>Let's talk</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nisi ratione provident ut. Repellat doloribus perspiciatis est rem error! Cumque fuga voluptates assumenda officiis ea deleniti voluptatem sequi distinctio voluptate?</p>
+    </div>
+    <div id="form">
+        <form>
+            <h6>Name</h6>
+            <input type="text" id="name" placeholder="Write your name here" required>
+            <h6>Email</h6>
+            <input type="email" id="email" placeholder="Write your email here" required>
+            <h6>Message</h6>
+            <textarea id="message" rows="4" placeholder="Write your message here" required></textarea>
+            <button type="submit" class="submit-btn">Send message</button>
+        </form>
+    </div>
+    <script>
+        const contactForm = document.querySelector("#form");
+        const submitBtn = document.querySelector(".submit-btn");
+        const nameImput = document.querySelector("#name");
+        const emailInput = document.querySelector("#email");
+        const messageInput = document.querySelector("#message");
+        const publicKey = "ySkcSbCTbWznDqrYU";
+        const serviceID = "service_qhucxia";
+        const templateID = "template_3guad3c";
+        emailjs.init(publicKey);
+        contactForm.addEventListener("submit", e => {
+        e.preventDefault();
+        submitBtn.innerText = "Just A Moment...";
+        const inputFields = {
+            name: nameImput.value,
+            email: emailInput.value,
+            message: messageInput.value
+        }
+        emailJs.send(serviceID, templateID, inputFields)
+        .then(() => {
+            submitBtn.innerText = "Message Sent Successfully";
+        nameImput.value = "";
+        emailInput.value = "";
+        messageInput.value = "";
+        }, (error) => {
+            console.log(error);
+            submitBtn.innerText = "Something Went Wrong";
+        });
+    });
+    </script>
+</body>
